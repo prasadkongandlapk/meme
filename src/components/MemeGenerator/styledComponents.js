@@ -55,7 +55,7 @@ export const BgImage = styled.div`
   align-items: center;
   color: white;
   width: 300px;
-  font-size: ${props => props.fontSize}
+  font-size: ${props => props.fontSize}px;
   text-align: center;
 `
 

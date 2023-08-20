@@ -42,7 +42,13 @@ const fontSizesOptionsList = [
 ]
 
 class MemeGenerator extends Component {
-  state = {showImage: false, fontSize: 0, url: '', bottom: '', top: ''}
+  state = {
+    showImage: false,
+    fontSize: fontSizesOptionsList[0].optionId,
+    url: '',
+    bottom: '',
+    top: '',
+  }
 
   onSubmitForm = event => {
     event.preventDefault()
@@ -68,7 +74,7 @@ class MemeGenerator extends Component {
   render() {
     const {showImage, fontSize, url, top, bottom} = this.state
     return (
-      <Background>
+      <Background data-testid="meme">
         <Heading>Meme Generator</Heading>
         <AlignRow>
           <form onSubmit={this.onSubmitForm}>
@@ -114,12 +120,13 @@ class MemeGenerator extends Component {
             <Button typ="submit">Generate</Button>
           </form>
           {showImage ? (
-            <BgImage>
-              <p fontSize={fontSize}>{top}</p>
+            <BgImage data-testid="meme" url={url} fontSize={fontSize}>
+              <p>{top}</p>
               <p>{bottom}</p>
             </BgImage>
           ) : (
             ''
+          )}
           )}
         </AlignRow>
       </Background>
